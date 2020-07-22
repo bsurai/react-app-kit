@@ -8,8 +8,9 @@ This app is built on [Create React App](https://github.com/facebook/create-react
 * [Install Docker-Compose](https://docs.docker.com/compose/install/)
 
 ## Run with Docker
-Create the `.env` file by copying the `.env.sample` file.
-Run a command.
+* Create the `.env` file by copying the `.env.sample` file.
+* Install dependencies with a command `npm i`
+* Run a command.
 
 ```
 npm run start:docker
