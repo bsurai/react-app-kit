@@ -1,3 +1,21 @@
+# Simple React App with Docker
+
+This app is built on [Create React App](https://github.com/facebook/create-react-app) but have settings for running it inside a docker container.
+
+## Prerequisites
+
+* [Install Docker](https://docs.docker.com/engine/install/ubuntu/)
+* [Install Docker-Compose](https://docs.docker.com/compose/install/)
+
+## Run with Docker
+
+```
+npm run start:docker
+```
+
+
+# Create React App Readme
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
