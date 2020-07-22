@@ -1,0 +1,20 @@
+version: '3'
+services:
+
+  web:
+    stdin_open: true
+    #restart: always
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    ports:
+      # <Port exposed> : <Port running inside container>
+      - '${WEB_APP_PORT}:${WEB_APP_PORT}'
+    expose:
+      # Opens port 3000 on the container
+      - '${WEB_APP_PORT}'
+    image: simple_react_app
+    volumes:
+      - ".:/app"
+    environment:
+      NODE_ENV: ${NODE_ENV}
