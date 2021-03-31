@@ -7,24 +7,31 @@ export type UserBaseData = {
   email: string
 }
 
+export type RoomBaseData = {
+  id: number
+  name: string
+  author: UserBaseData
+  createdAt: string
+}
+
+
 export type UserSystemData = {
-  rooms: Room[]
+  rooms: RoomBaseData[]
   status: UserStatus
   expirationDate: string
   isAuthorized: boolean // only frontend
 }
 
-export type User = UserBaseData & UserSystemData
-
-export type Room = {
-  id: number
-  name: string
-  author: Partial<UserBaseData>
-  createdAt: string
-  admins: Partial<UserBaseData>[]
-  users: Partial<UserBaseData>[]
+export type RoomSystemData = {
+  admins: UserBaseData[]
+  users: UserBaseData[]
   labels: string[]
 }
+
+
+export type User = UserBaseData & UserSystemData
+export type Room = RoomBaseData & RoomSystemData
+
 
 export type Document = {
   id: number
