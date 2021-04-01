@@ -1,11 +1,8 @@
+import { UserBaseData } from '../users/types'
+
 export type UserStatus = 'new' | 'verified' | 'blocked'
 
-export type UserBaseData = {
-  id: number
-  firsName: string
-  lastName: string
-  email: string
-}
+
 
 export type RoomBaseData = {
   id: number
