@@ -1,0 +1,11 @@
+index
+about
+contacts
+signin
+room
+room/:id
+  documents
+  document_1
+  document_1/:id
+  document_2
+  document_2/:id
