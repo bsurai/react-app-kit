@@ -9,6 +9,7 @@ export type RoomBaseData = {
   name: string
   author: UserBaseData
   createdAt: string
+  image?: string
 }
 
 
