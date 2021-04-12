@@ -2,7 +2,10 @@ import { UserBaseData } from '../users/types'
 
 export type UserStatus = 'new' | 'verified' | 'blocked'
 
-
+export type Label = {
+  text: string
+  color: string
+}
 
 export type RoomBaseData = {
   id: number
@@ -23,7 +26,7 @@ export type UserSystemData = {
 export type RoomSystemData = {
   admins: UserBaseData[]
   users: UserBaseData[]
-  labels: string[]
+  labels: Label[]
 }
 
 
@@ -36,5 +39,5 @@ export type Document = {
   roomId: string
   authorId: string
   createdAt: string
-  labels: string[]
+  labels: Label[]
 }
