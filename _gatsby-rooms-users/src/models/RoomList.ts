@@ -44,4 +44,8 @@ export const RoomList = types.model({
       self.items.push(room)
     },
 
+    getById(id: number) {
+      return self.items.find((room) => room.id === id)
+    },
+
   }))

@@ -9,7 +9,7 @@ type Props = {
   label?: string
 }
 
-export default function InputText({ value, readOnly=false, label='' }: Props) {
+export default function TextInput({ value, readOnly=false, label='' }: Props) {
   return (
     <div>
       <FormControl>

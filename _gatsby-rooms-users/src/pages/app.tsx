@@ -7,13 +7,14 @@ import SEO from "../components/seo"
 
 import RoomList from '../components/rooms/RoomList'
 import { roomListStore } from '../stores/RoomList'
+import RoomDetails from "../components/rooms/RoomDetails"
 
 function IndexSubPage(props) {
   return <div/>
 }
 
-function SomeSubPage(props) {
-  return <div>Hi from SubPage with id: {props.id}</div>
+function RoomCreate() {
+
 }
 
 const SecondPage = () => (
@@ -25,13 +26,13 @@ const SecondPage = () => (
 
     <RoomList roomList={roomListStore as any}/>
 
-    <Link to="/app/family">Family</Link>
-    <Link to="/app/work">Work</Link>
+    <Link to="/app/1">Family</Link>
+    <Link to="/app/2">Work</Link>
 
     <Router basepath="/app">
       {/* // ...dynamic routes here */}
       <IndexSubPage path='/'/>
-      <SomeSubPage path="/:id" />
+      <RoomDetails path="/:id" />
     </Router>
     
   </Layout>
