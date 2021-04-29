@@ -26,9 +26,6 @@ const SecondPage = () => (
 
     <RoomList roomList={roomListStore as any}/>
 
-    <Link to="/app/1">Family</Link>
-    <Link to="/app/2">Work</Link>
-
     <Router basepath="/app">
       {/* // ...dynamic routes here */}
       <IndexSubPage path='/'/>
