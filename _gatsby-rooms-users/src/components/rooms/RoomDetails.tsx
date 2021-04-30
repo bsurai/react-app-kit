@@ -7,6 +7,7 @@ import TextInput from '../base/TextInput'
 import EditButton from '../base/buttons/EditButton'
 import SaveButton from '../base/buttons/SaveButton'
 import CloseButton from '../base/buttons/CloseButton'
+import CancelButton from '../base/buttons/CancelButton'
 import { getRoomLisPath } from '../../utils/url'
 
 type Props = {
@@ -47,12 +48,24 @@ function RoomDetails({ path, id }: Props) {
     setIsMutated(true)
   }
 
+  function handleClickCancel() {
+    setName(room.name)
+    setIsMutated(false)
+    setIsEditable(false)
+  }
+
   function handleClickClose() {
     navigate(getRoomLisPath())
   }
 
   const showEditButton = !isEditable
   const showSaveButton = isEditable
+  const showCancelButton = isEditable
+  const showCloseButton = !isEditable
+
+  const disableSaveButton = !isMutated
+  const disableCancelButton = !isMutated
+
   return (
     <>
       <InputLabel>Room</InputLabel>
@@ -70,6 +83,7 @@ function RoomDetails({ path, id }: Props) {
         onChange={handleChangeName}
       />
 
+      {/* ============== Buttons ============ */}
       {showEditButton &&
       <EditButton
         onClick={handleClickEdit}
@@ -77,14 +91,21 @@ function RoomDetails({ path, id }: Props) {
 
       {showSaveButton &&
       <SaveButton
-        disabled={!isMutated}
+        disabled={disableSaveButton}
         onClick={handleClickSave}
       />}
 
+      {showCancelButton &&
+      <CancelButton
+        disabled={disableCancelButton}
+        onClick={handleClickCancel}
+      />}
+
+      {showCloseButton &&
       <CloseButton
         disabled={isMutated}
         onClick={handleClickClose}
-      />
+      />}
     </>
   )
 }
