@@ -84,28 +84,28 @@ function RoomDetails({ path, id }: Props) {
       />
 
       {/* ============== Buttons ============ */}
-      {showEditButton &&
       <EditButton
+        display={showEditButton}
         onClick={handleClickEdit}
-      />}
+      />
 
-      {showSaveButton &&
       <SaveButton
+        display={showSaveButton}
         disabled={disableSaveButton}
         onClick={handleClickSave}
-      />}
+      />
 
-      {showCancelButton &&
       <CancelButton
+        display={showCancelButton}
         disabled={disableCancelButton}
         onClick={handleClickCancel}
-      />}
+      />
 
-      {showCloseButton &&
       <CloseButton
+        display={showCloseButton}
         disabled={isMutated}
         onClick={handleClickClose}
-      />}
+      />
     </>
   )
 }
