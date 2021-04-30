@@ -1,3 +1,7 @@
-export function getRoomPath(id: number) {
+export function getRoomIdPath(id: number) {
   return `/app/${id}`
+}
+
+export function getRoomLisPath() {
+  return '/app/'
 }

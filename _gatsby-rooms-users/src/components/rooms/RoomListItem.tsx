@@ -5,7 +5,7 @@ import Avatar from '@material-ui/core/Avatar'
 import ListItemText from '@material-ui/core/ListItemText'
 import { observer } from 'mobx-react-lite'
 import { navigate } from "gatsby"
-import { getRoomPath } from '../../utils/url'
+import { getRoomIdPath } from '../../utils/url'
 
 type Props = {
   item: {
@@ -18,7 +18,7 @@ type Props = {
 function RoomListItem({ item }: Props) {
 
   function handleClick() {
-    navigate(getRoomPath(item.id))
+    navigate(getRoomIdPath(item.id))
   }
 
   return (

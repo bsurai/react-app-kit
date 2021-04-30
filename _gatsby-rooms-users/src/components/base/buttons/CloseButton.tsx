@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
-import EditIcon from '@material-ui/icons/Edit';
+import CloseIcon from '@material-ui/icons/Close'
 
 type Props = {
   disabled?: boolean
@@ -8,16 +8,16 @@ type Props = {
   onClick?: (e: any) => void
 }
 
-export default function SaveButton({ disabled=false, component, onClick }: Props) {
+export default function CloseButton({ disabled=false, component, onClick }: Props) {
   return (
     <Button
       variant='contained'
       disabled={disabled}
       onClick={onClick}
       component={component}
-      startIcon={<EditIcon/>}
+      startIcon={<CloseIcon/>}
     >
-      Edit
+      Close
     </Button>
   )
 }

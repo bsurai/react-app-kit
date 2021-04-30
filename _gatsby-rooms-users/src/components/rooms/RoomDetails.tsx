@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { observer } from 'mobx-react-lite'
 import InputLabel from '@material-ui/core/InputLabel'
+import { navigate } from 'gatsby'
 import { roomListStore } from '../../stores/RoomList'
 import TextInput from '../base/TextInput'
 import EditButton from '../base/buttons/EditButton'
 import SaveButton from '../base/buttons/SaveButton'
+import CloseButton from '../base/buttons/CloseButton'
+import { getRoomLisPath } from '../../utils/url'
 
 type Props = {
   path: string
@@ -44,6 +47,10 @@ function RoomDetails({ path, id }: Props) {
     setIsMutated(true)
   }
 
+  function handleClickClose() {
+    navigate(getRoomLisPath())
+  }
+
   const showEditButton = !isEditable
   const showSaveButton = isEditable
   return (
@@ -64,13 +71,20 @@ function RoomDetails({ path, id }: Props) {
       />
 
       {showEditButton &&
-      <EditButton onClick={handleClickEdit}/>}
+      <EditButton
+        onClick={handleClickEdit}
+      />}
 
       {showSaveButton &&
       <SaveButton
         disabled={!isMutated}
         onClick={handleClickSave}
       />}
+
+      <CloseButton
+        disabled={isMutated}
+        onClick={handleClickClose}
+      />
     </>
   )
 }

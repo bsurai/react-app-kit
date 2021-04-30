@@ -4,15 +4,17 @@ import SaveIcon from '@material-ui/icons/Save'
 
 type Props = {
   disabled?: boolean
+  component?: any
   onClick?: (e: any) => void
 }
 
-export default function EditButton({ disabled=false, onClick }: Props) {
+export default function EditButton({ disabled=false, component, onClick }: Props) {
   return (
     <Button
       variant='contained'
       disabled={disabled}
       onClick={onClick}
+      component={component}
       startIcon={<SaveIcon/>}
     >
       Save
