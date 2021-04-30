@@ -3,8 +3,8 @@ import { observer } from 'mobx-react-lite'
 import InputLabel from '@material-ui/core/InputLabel'
 import { roomListStore } from '../../stores/RoomList'
 import TextInput from '../base/TextInput'
-import EditButton from '../base/EditButton'
-import SaveButton from '../base/SaveButton'
+import EditButton from '../base/buttons/EditButton'
+import SaveButton from '../base/buttons/SaveButton'
 
 type Props = {
   path: string
