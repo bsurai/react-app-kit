@@ -1,33 +1,14 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
+import BaseButton, { ButtonProps } from './BaseButton'
 import CancelIcon from '@material-ui/icons/Cancel'
 
-type Props = {
-  display?: boolean
-  disabled?: boolean
-  component?: any
-  onClick?: (e: any) => void
-}
-
-export default function EditButton({
-  display=true,
-  disabled=false,
-  component,
-  onClick,
-}: Props) {
-  if (!display) {
-    return null
-  }
-
+export default function CancelButton(props: ButtonProps) {
   return (
-    <Button
-      variant='contained'
-      disabled={disabled}
-      onClick={onClick}
-      component={component}
+    <BaseButton
+      {...props}
       startIcon={<CancelIcon/>}
     >
       Cancel
-    </Button>
+    </BaseButton>
   )
 }

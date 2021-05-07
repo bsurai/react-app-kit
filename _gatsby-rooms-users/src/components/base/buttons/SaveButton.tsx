@@ -1,33 +1,14 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
+import BaseButton, { ButtonProps } from './BaseButton'
 import SaveIcon from '@material-ui/icons/Save'
 
-type Props = {
-  display?: boolean
-  disabled?: boolean
-  component?: any
-  onClick?: (e: any) => void
-}
-
-export default function EditButton({
-  display=true,
-  disabled=false,
-  component,
-  onClick,
-}: Props) {
-  if (!display) {
-    return null
-  }
-
+export default function SaveButton(props: ButtonProps) {
   return (
-    <Button
-      variant='contained'
-      disabled={disabled}
-      onClick={onClick}
-      component={component}
+    <BaseButton
+      {...props}
       startIcon={<SaveIcon/>}
     >
       Save
-    </Button>
+    </BaseButton>
   )
 }
