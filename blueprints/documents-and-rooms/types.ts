@@ -1,30 +1,31 @@
 import { UserBaseData } from '../users/types'
 
-export type Label = {
+export interface DocumentBase {
+  id: number
+  createdAt: string
+}
+
+export interface Document extends DocumentBase {
+  roomId: string
+  authorId: string
+  labels: Label[]
+}
+
+export interface Label {
   text: string
   color: string
 }
 
-export type RoomBaseData = {
-  id: number
+export interface RoomBaseData extends DocumentBase {
   name: string
   author: UserBaseData
-  createdAt: string
   image?: string
 }
 
-export type RoomSystemData = {
+export interface RoomSystemData {
   admins: UserBaseData[]
   users: UserBaseData[]
   labels: Label[]
 }
 
-export type Room = RoomBaseData & RoomSystemData
-
-export type Document = {
-  id: number
-  roomId: string
-  authorId: string
-  createdAt: string
-  labels: Label[]
-}
+export interface Room extends RoomBaseData, RoomSystemData {}
