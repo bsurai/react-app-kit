@@ -5,13 +5,14 @@ import { observer } from 'mobx-react-lite'
 import RoomListItem from './RoomListItem'
 
 
-type Props = {
+interface Props {
+  path: string
   roomList: {
     items: any[]
   }
 }
 
-function RoomList({ roomList }: Props) {
+function RoomListPage({ roomList }: Props) {
   return (
     <List>
       {roomList.items.map((item) => <RoomListItem key={item.id} item={item}/>)}
@@ -19,4 +20,4 @@ function RoomList({ roomList }: Props) {
   )
 }
 
-export default observer(RoomList)
+export default observer(RoomListPage)
