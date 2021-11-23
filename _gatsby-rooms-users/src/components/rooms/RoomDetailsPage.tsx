@@ -15,7 +15,7 @@ type Props = {
   id?: string
 }
 
-function RoomDetails({ path, id }: Props) {
+function RoomDetailsPage({ id }: Props) {
   const [isEditable, setIsEditable] = useState(false)
   const [isMutated, setIsMutated] = useState(false)
 
@@ -110,4 +110,4 @@ function RoomDetails({ path, id }: Props) {
   )
 }
 
-export default observer(RoomDetails)
+export default observer(RoomDetailsPage)

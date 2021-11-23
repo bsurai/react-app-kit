@@ -7,7 +7,8 @@ import SEO from "../components/seo"
 
 import RoomListPage from '../components/rooms/RoomListPage'
 import { roomListStore } from '../stores/RoomList'
-import RoomDetails from "../components/rooms/RoomDetails"
+import RoomDetailsPage from "../components/rooms/RoomDetailsPage"
+import { getRoomLisPath } from "../utils/url"
 
 function IndexSubPage(props) {
   return <div/>
@@ -26,7 +27,7 @@ const SecondPage = () => (
     <nav>
       <ul>
         <li><Link to="/">Go back to the homepage</Link></li>
-        <li><Link to='/app/rooms'>Go to room list</Link></li>
+        <li><Link to={getRoomLisPath()}>Go to room list</Link></li>
       </ul>
     </nav>
 
@@ -34,7 +35,7 @@ const SecondPage = () => (
       {/* // ...dynamic routes here */}
       <IndexSubPage path='/'/>
       <RoomListPage path='/rooms' roomList={roomListStore}/>
-      <RoomDetails path="/room/:id" />
+      <RoomDetailsPage path="/room/:id" />
     </Router>
     
   </Layout>

@@ -1,7 +1,7 @@
 export function getRoomIdPath(id: number) {
-  return `/app/${id}`
+  return `/app/room/${id}`
 }
 
 export function getRoomLisPath() {
-  return '/app/'
+  return '/app/rooms'
 }
