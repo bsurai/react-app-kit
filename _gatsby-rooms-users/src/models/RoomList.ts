@@ -1,5 +1,5 @@
 import { types } from 'mobx-state-tree'
-import { Room } from '../../../blueprints/users-and-rooms/types'
+import { Room } from '../../../blueprints/documents-and-rooms/types'
 
 export const data: Room = {
   id: 1,

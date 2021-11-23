@@ -2,7 +2,7 @@ index
 about
 contacts
 signin
-room
+rooms
 room/:id
   documents
   document_1

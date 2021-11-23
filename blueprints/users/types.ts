@@ -1,4 +1,4 @@
-import { RoomBaseData } from "../users-and-rooms/types"
+import { RoomBaseData } from "../documents-and-rooms/types"
 
 export type UserStatus = 'new' | 'verified' | 'blocked'
 
