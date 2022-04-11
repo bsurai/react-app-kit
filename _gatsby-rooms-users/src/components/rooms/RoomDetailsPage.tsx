@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { observer } from 'mobx-react-lite'
 import InputLabel from '@material-ui/core/InputLabel'
+import List from '@material-ui/core/List'
+import ListSubheader from '@material-ui/core/ListSubheader'
 import { navigate } from 'gatsby'
 import { roomListStore } from '../../stores/RoomList'
 import TextInput from '../base/TextInput'
@@ -9,6 +11,11 @@ import SaveButton from '../base/buttons/SaveButton'
 import CloseButton from '../base/buttons/CloseButton'
 import CancelButton from '../base/buttons/CancelButton'
 import { getRoomLisPath } from '../../utils/url'
+import DocumentTypeListItem from '../document-types/DocumentTypeListItem'
+import map from 'lodash/map'
+import filter from 'lodash/filter'
+import find from 'lodash/find'
+import { documentTypeListStore } from '../../stores/DocumentTypeList'
 
 type Props = {
   path: string
@@ -66,6 +73,8 @@ function RoomDetailsPage({ id }: Props) {
   const disableSaveButton = !isMutated
   const disableCancelButton = !isMutated
 
+  const documentTypes = filter(documentTypeListStore.items, (o) => find(room.documentTypes, (d) => o.alias === d.alias))
+
   return (
     <>
       <InputLabel>Room</InputLabel>
@@ -106,6 +115,13 @@ function RoomDetailsPage({ id }: Props) {
         disabled={isMutated}
         onClick={handleClickClose}
       />
+
+      {/* ========= Document Types ========= */}
+      <List
+        subheader={<ListSubheader>Docements</ListSubheader>}
+      >
+        {map(documentTypes, (o) => <DocumentTypeListItem key={o.alias} item={o}/>)}
+      </List>
     </>
   )
 }

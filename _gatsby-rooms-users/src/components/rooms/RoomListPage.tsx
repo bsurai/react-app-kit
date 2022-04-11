@@ -1,8 +1,9 @@
 import React from 'react'
 import List from '@material-ui/core/List'
+import ListSubheader from '@material-ui/core/ListSubheader'
 import { observer } from 'mobx-react-lite'
-
 import RoomListItem from './RoomListItem'
+import map from 'lodash/map';
 
 
 interface Props {
@@ -14,8 +15,10 @@ interface Props {
 
 function RoomListPage({ roomList }: Props) {
   return (
-    <List>
-      {roomList.items.map((item) => <RoomListItem key={item.id} item={item}/>)}
+    <List
+      subheader={<ListSubheader>Rooms</ListSubheader>}
+    >
+      {map(roomList.items, (o) => <RoomListItem key={o.id} item={o}/>)}
     </List>
   )
 }

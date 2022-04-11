@@ -20,12 +20,16 @@ import { DocumentType } from '../../../blueprints/documents-and-rooms/types'
 //   // userIds: any[]
 //   // labels: any[]
 // }
+export const RoomDocumentType = types.model({
+  alias: types.string,
+})
 
 export const RoomListItem = types.model({
     id: types.number,
     name: types.string,
     image: types.optional(types.string, ''),
     createdAt: types.Date,
+    documentTypes: types.optional(types.array(RoomDocumentType), []),
   })
   .actions((self) => ({
 

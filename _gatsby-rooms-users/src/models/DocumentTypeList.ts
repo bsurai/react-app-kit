@@ -5,8 +5,10 @@ import { Room } from '../../../blueprints/documents-and-rooms/types'
 export const DocumentTypeListItem = types.model({
     id: types.number,
     name: types.string,
+    alias: types.string,
     image: types.optional(types.string, ''),
     createdAt: types.Date,
+    
   })
   .actions((self) => ({
 
