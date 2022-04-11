@@ -1,5 +1,12 @@
 import { UserBaseData } from '../users/types'
 
+export interface DocumentType {
+  id: number
+  name: string
+  alias: string
+  createdAt: string
+}
+
 export interface DocumentBase {
   id: number
   createdAt: string

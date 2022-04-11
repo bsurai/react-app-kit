@@ -1,25 +1,25 @@
 import { types } from 'mobx-state-tree'
-import { Room } from '../../../blueprints/documents-and-rooms/types'
+import { DocumentType } from '../../../blueprints/documents-and-rooms/types'
 
-export const data: Room = {
-  id: 1,
-  name: 'Family',
-  author: {} as any,
-  admins: [],
-  users: [],
-  labels: ['test', 'private'],
-  createdAt: '2021-04-06 12:43:00'
-}
+// export const data: Room = {
+//   id: 1,
+//   name: 'Family',
+//   author: {} as any,
+//   admins: [],
+//   users: [],
+//   labels: ['test', 'private'],
+//   createdAt: '2021-04-06 12:43:00'
+// }
 
-type Room2 = {
-  id: number
-  name: string
-  authorId: number
-  createdAt: string
-  // adminIds: any[]
-  // userIds: any[]
-  // labels: any[]
-}
+// type Room2 = {
+//   id: number
+//   name: string
+//   authorId: number
+//   createdAt: string
+//   // adminIds: any[]
+//   // userIds: any[]
+//   // labels: any[]
+// }
 
 export const RoomListItem = types.model({
     id: types.number,
