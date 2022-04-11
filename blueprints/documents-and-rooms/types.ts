@@ -27,6 +27,7 @@ export interface RoomBaseData extends DocumentBase {
   name: string
   author: UserBaseData
   image?: string
+  documentTypes: { alias: string }[]
 }
 
 export interface RoomSystemData {
