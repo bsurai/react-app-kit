@@ -9,6 +9,7 @@ import RoomListPage from '../components/rooms/RoomListPage'
 import { roomListStore } from '../stores/RoomList'
 import RoomDetailsPage from "../components/rooms/RoomDetailsPage"
 import { getRoomLisPath } from "../utils/url"
+import DocumentListPage from "../components/document-types/DocumentListPage"
 
 function IndexSubPage(props) {
   return <div/>
@@ -36,6 +37,7 @@ const SecondPage = () => (
       <IndexSubPage path='/'/>
       <RoomListPage path='/rooms' roomList={roomListStore}/>
       <RoomDetailsPage path="/room/:id" />
+      <DocumentListPage path='/document/:documentType'/>
     </Router>
     
   </Layout>

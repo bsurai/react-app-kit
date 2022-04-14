@@ -120,7 +120,12 @@ function RoomDetailsPage({ id }: Props) {
       <List
         subheader={<ListSubheader>Docements</ListSubheader>}
       >
-        {map(documentTypes, (o) => <DocumentTypeListItem key={o.alias} item={o}/>)}
+        {map(documentTypes, (o) => 
+        <DocumentTypeListItem
+          key={o.alias}
+          roomId={id}
+          item={o}
+        />)}
       </List>
     </>
   )

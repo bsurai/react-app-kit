@@ -5,3 +5,7 @@ export function getRoomIdPath(id: number) {
 export function getRoomLisPath() {
   return '/app/rooms'
 }
+
+export function getDocumentTypePath(documentType: string) {
+  return `/app/document/${documentType}`
+}

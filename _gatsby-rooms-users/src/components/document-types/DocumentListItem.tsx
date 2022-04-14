@@ -1,24 +1,24 @@
 import React from 'react'
 import ListItem, { ListItemProps } from '@material-ui/core/ListItem'
-// import ListItemAvatar from '@material-ui/core/ListItemAvatar'
-// import Avatar from '@material-ui/core/Avatar'
+import ListItemAvatar from '@material-ui/core/ListItemAvatar'
+import Avatar from '@material-ui/core/Avatar'
 import ListItemText from '@material-ui/core/ListItemText'
 import { observer } from 'mobx-react-lite'
 import { navigate } from "gatsby"
-import { getDocumentTypePath } from '../../utils/url'
+import { getRoomIdPath } from '../../utils/url'
 
 type Props = {
-  roomId: number
   item: {
-    alias: string
+    id: number
+    image: string
     name: string
   }
 }
 
-function DocumentTypeListItem({ roomId, item }: Props) {
+function DocumentListItem({ item }: Props) {
 
   function handleClick() {
-    navigate(getDocumentTypePath(item.alias), { state: { roomId } })
+    navigate(getRoomIdPath(item.id))
   }
 
   return (
@@ -37,4 +37,4 @@ function DocumentTypeListItem({ roomId, item }: Props) {
   )
 }
 
-export default observer(DocumentTypeListItem)
+export default observer(DocumentListItem)
