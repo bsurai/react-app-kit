@@ -25,7 +25,7 @@ function DocumentListPage({ location, documentList = {} }: Props) {
       {'< Back to room'}
     </Link>
     <List
-      subheader={<ListSubheader>Rooms</ListSubheader>}
+      subheader={<ListSubheader>Document Type</ListSubheader>}
     >
       {map(documentList.items, (o) => <DocumentListItem key={o.id} item={o}/>)}
     </List>

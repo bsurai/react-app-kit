@@ -1,6 +1,4 @@
 import { types } from 'mobx-state-tree'
-import { Room } from '../../../blueprints/documents-and-rooms/types'
-
 
 export const DocumentTypeListItem = types.model({
     id: types.number,
