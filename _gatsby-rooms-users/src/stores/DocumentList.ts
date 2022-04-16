@@ -1,6 +1,6 @@
 import { DocumentList } from '../models/DocumentList'
 
-export const documetnListStore = DocumentList.create({
+export const documentListStore = DocumentList.create({
   items: mockItems(),
 })
 

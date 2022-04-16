@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 
 import RoomListPage from '../components/rooms/RoomListPage'
 import { roomListStore } from '../stores/RoomList'
+import { documentListStore } from '../stores/DocumentList'
 import RoomDetailsPage from "../components/rooms/RoomDetailsPage"
 import { getRoomLisPath } from "../utils/url"
 import DocumentListPage from "../components/document-types/DocumentListPage"
@@ -37,7 +38,7 @@ const SecondPage = () => (
       <IndexSubPage path='/'/>
       <RoomListPage path='/rooms' roomList={roomListStore}/>
       <RoomDetailsPage path="/room/:id" />
-      <DocumentListPage path='/document/:documentType'/>
+      <DocumentListPage path='/document/:documentType' documentList={documentListStore}/>
     </Router>
     
   </Layout>
