@@ -1,4 +1,4 @@
-import { types, Instance } from 'mobx-state-tree'
+import { types, Instance, getEnv, flow, cast } from 'mobx-state-tree'
 import { DocumentType } from '../../../blueprints/documents-and-rooms/types'
 
 export const RoomDocumentTypeModel = types.model({
@@ -25,13 +25,18 @@ export const RoomListModel = types.model({
   })
   .actions((self) => ({
 
-    add(room) {
+    add(room: IRoomListItem) {
       self.items.push(room)
     },
 
     getById(id: number) {
       return self.items.find((room) => room.id === id)
     },
+
+    load: flow(function*() {
+      const resp = yield getEnv(self).service.getList()
+      self.items = cast(resp)
+    }),
 
   }))
 

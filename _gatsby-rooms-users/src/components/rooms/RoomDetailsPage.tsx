@@ -34,7 +34,6 @@ function RoomDetailsPage({ id, roomDetail }: Props) {
   const [name, setName] = useState(room.name)
 
   useEffect(() => {
-
   }
   , [id])
 

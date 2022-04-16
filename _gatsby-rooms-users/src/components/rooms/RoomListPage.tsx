@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { observer } from 'mobx-react-lite'
 import map from 'lodash/map';
 
@@ -9,14 +9,16 @@ import RoomListItem from './RoomListItem'
 
 import { IRoomList, IRoomListItem } from '../../models/RoomList'
 
-// import { RoomListModel } from '../../models/RoomList'
-
 interface Props {
   path: string
   roomList: IRoomList
 }
 
 function RoomListPage({ roomList }: Props) {
+  useEffect(() => {
+    roomList.load()
+  }, [])
+
   return (
     <List
       subheader={<ListSubheader>Rooms</ListSubheader>}
