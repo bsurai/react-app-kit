@@ -1,14 +1,17 @@
 import React from 'react'
-import List from '@material-ui/core/List'
-import ListSubheader from '@material-ui/core/ListSubheader'
 import { observer } from 'mobx-react-lite'
-import RoomListItem from './RoomListItem'
 import map from 'lodash/map';
 
+import List from '@material-ui/core/List'
+import ListSubheader from '@material-ui/core/ListSubheader'
+
+import RoomListItem from './RoomListItem'
+
+// import { RoomListModel } from '../../models/RoomList'
 
 interface Props {
   path: string
-  roomList: {
+  roomList: { // similar to RoomListModel
     items: any[]
   }
 }

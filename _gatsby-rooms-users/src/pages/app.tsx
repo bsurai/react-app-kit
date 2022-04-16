@@ -7,10 +7,15 @@ import SEO from "../components/seo"
 
 import RoomListPage from '../components/rooms/RoomListPage'
 import { roomListStore } from '../stores/RoomList'
+import { roomDetailStore } from '../stores/RoomDetail'
+
 import { documentListStore } from '../stores/DocumentList'
+
 import RoomDetailsPage from "../components/rooms/RoomDetailsPage"
-import { getRoomLisPath } from "../utils/url"
 import DocumentListPage from "../components/document-types/DocumentListPage"
+
+import { getRoomLisPath } from "../utils/url"
+
 
 function IndexSubPage(props) {
   return <div/>
@@ -36,8 +41,10 @@ const SecondPage = () => (
     <Router basepath="/app">
       {/* // ...dynamic routes here */}
       <IndexSubPage path='/'/>
+
       <RoomListPage path='/rooms' roomList={roomListStore}/>
-      <RoomDetailsPage path="/room/:id" />
+      <RoomDetailsPage path="/room/:id" roomDetail={roomDetailStore}/>
+
       <DocumentListPage path='/document/:documentType' documentList={documentListStore}/>
     </Router>
     

@@ -1,10 +1,14 @@
-import { RoomListModel } from '../models/RoomList'
+import { RoomDetailModel } from '../models/RoomDetail'
 
-export const roomListStore = RoomListModel.create({
-  items: mockItems(),
+export const roomDetailStore = RoomDetailModel.create({
+  id: 0,
+  name: '',
+  image: '',
+  createdAt: 0,
+  documentTypes: [], // mockDocumentTypes(),
 })
 
-function mockItems() {
+function mockDocumentTypes() {
   return [
     {
       id: 1,

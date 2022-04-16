@@ -1,6 +1,6 @@
-import { DocumentTypeList } from '../models/DocumentTypeList'
+import { DocumentTypeListModel } from '../models/DocumentTypeList'
 
-export const documentTypeListStore = DocumentTypeList.create({
+export const documentTypeListStore = DocumentTypeListModel.create({
   items: mockItems(),
 })
 

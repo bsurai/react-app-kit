@@ -1,17 +1,18 @@
 import React from 'react'
-import { Link } from "gatsby"
+import { observer } from 'mobx-react-lite'
+import { Link } from 'gatsby'
+import map from 'lodash/map';
+
 import List from '@material-ui/core/List'
 import ListSubheader from '@material-ui/core/ListSubheader'
-import { observer } from 'mobx-react-lite'
-import DocumentListItem from './DocumentListItem'
-import map from 'lodash/map';
-import { getRoomIdPath } from '../../utils/url'
 
+import DocumentListItem from './DocumentListItem'
+import { getRoomIdPath } from '../../utils/url'
 
 interface Props {
   path: string
   location?: any
-  documentList?: {
+  documentList?: { // similar to DocumentListModel
     items?: any[]
   }
 }

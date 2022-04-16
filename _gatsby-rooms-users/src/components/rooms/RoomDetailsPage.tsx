@@ -1,33 +1,43 @@
 import React, { useEffect, useState } from 'react'
 import { observer } from 'mobx-react-lite'
+import { navigate } from 'gatsby'
+import map from 'lodash/map'
+import filter from 'lodash/filter'
+import find from 'lodash/find'
+
 import InputLabel from '@material-ui/core/InputLabel'
 import List from '@material-ui/core/List'
 import ListSubheader from '@material-ui/core/ListSubheader'
-import { navigate } from 'gatsby'
-import { roomListStore } from '../../stores/RoomList'
+
 import TextInput from '../base/TextInput'
 import EditButton from '../base/buttons/EditButton'
 import SaveButton from '../base/buttons/SaveButton'
 import CloseButton from '../base/buttons/CloseButton'
 import CancelButton from '../base/buttons/CancelButton'
-import { getRoomLisPath } from '../../utils/url'
 import DocumentTypeListItem from '../document-types/DocumentTypeListItem'
-import map from 'lodash/map'
-import filter from 'lodash/filter'
-import find from 'lodash/find'
+
+import { roomListStore } from '../../stores/RoomList'
 import { documentTypeListStore } from '../../stores/DocumentTypeList'
+import { getRoomLisPath } from '../../utils/url'
 
 type Props = {
   path: string
   id?: string
+  roomDetail: any // similar to RoomDetailModel
 }
 
-function RoomDetailsPage({ id }: Props) {
+function RoomDetailsPage({ id, roomDetail }: Props) {
   const [isEditable, setIsEditable] = useState(false)
   const [isMutated, setIsMutated] = useState(false)
 
   const room = roomListStore.getById(Number(id))
   const [name, setName] = useState(room.name)
+
+  useEffect(() => {
+
+  }
+  , [id])
+
 
   useEffect(() => {
     setName(room.name)

@@ -1,6 +1,6 @@
 import { types } from 'mobx-state-tree'
 
-export const DocumentMetadata = types.model({
+export const DocumentMetadataModel = types.model({
   // id: types.number,
   // name: types.string,
   // alias: types.string,
@@ -13,7 +13,7 @@ export const DocumentMetadata = types.model({
   // },
 }))
 
-export const DocumentListItem = types.model({
+export const DocumentListItemModel = types.model({
     id: types.number,
     name: types.string,
     alias: types.string,
@@ -27,9 +27,9 @@ export const DocumentListItem = types.model({
     // },
   }))
 
-export const DocumentList = types.model({
-    metadata: DocumentMetadata,
-    items: types.optional(types.array(DocumentListItem), []),
+export const DocumentListModel = types.model({
+    metadata: types.optional(DocumentMetadataModel, {}),
+    items: types.optional(types.array(DocumentListItemModel), []),
   })
   .actions((self) => ({
 
