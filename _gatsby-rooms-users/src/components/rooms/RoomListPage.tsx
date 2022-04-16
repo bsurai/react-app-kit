@@ -7,13 +7,13 @@ import ListSubheader from '@material-ui/core/ListSubheader'
 
 import RoomListItem from './RoomListItem'
 
+import { IRoomList, IRoomListItem } from '../../models/RoomList'
+
 // import { RoomListModel } from '../../models/RoomList'
 
 interface Props {
   path: string
-  roomList: { // similar to RoomListModel
-    items: any[]
-  }
+  roomList: IRoomList
 }
 
 function RoomListPage({ roomList }: Props) {
@@ -21,7 +21,7 @@ function RoomListPage({ roomList }: Props) {
     <List
       subheader={<ListSubheader>Rooms</ListSubheader>}
     >
-      {map(roomList.items, (o) => <RoomListItem key={o.id} item={o}/>)}
+      {map(roomList.items, (o: IRoomListItem) => <RoomListItem key={o.id} item={o}/>)}
     </List>
   )
 }

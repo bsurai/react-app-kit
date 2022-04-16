@@ -1,25 +1,6 @@
-import { types } from 'mobx-state-tree'
+import { types, Instance } from 'mobx-state-tree'
 import { DocumentType } from '../../../blueprints/documents-and-rooms/types'
 
-// export const data: Room = {
-//   id: 1,
-//   name: 'Family',
-//   author: {} as any,
-//   admins: [],
-//   users: [],
-//   labels: ['test', 'private'],
-//   createdAt: '2021-04-06 12:43:00'
-// }
-
-// type Room2 = {
-//   id: number
-//   name: string
-//   authorId: number
-//   createdAt: string
-//   // adminIds: any[]
-//   // userIds: any[]
-//   // labels: any[]
-// }
 export const RoomDocumentTypeModel = types.model({
   alias: types.string,
 })
@@ -53,3 +34,7 @@ export const RoomListModel = types.model({
     },
 
   }))
+
+export interface IRoomDocumentType extends Instance<typeof RoomDocumentTypeModel> {}
+export interface IRoomListItem extends Instance<typeof RoomListItemModel> {}
+export interface IRoomList extends Instance<typeof RoomListModel> {}
