@@ -8,8 +8,9 @@ import { navigate } from "gatsby"
 import { getDocumentTypePath } from '../../utils/url'
 
 type Props = {
-  roomId: number
+  roomId: string
   item: {
+    id: string
     alias: string
     name: string
   }

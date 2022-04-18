@@ -1,1 +1,1 @@
-export { roomListService } from './mock/RoomList'
+export { roomService } from './mock/Room';

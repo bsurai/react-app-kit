@@ -1,7 +1,7 @@
 import { DocumentTypeListModel } from '../models/DocumentTypeList'
 
 export const documentTypeListStore = DocumentTypeListModel.create({
-  items: mockItems(),
+  // items: mockItems(),
 })
 
 function mockItems() {

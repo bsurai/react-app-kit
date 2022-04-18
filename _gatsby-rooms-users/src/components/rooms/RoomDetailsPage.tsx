@@ -17,23 +17,24 @@ import CancelButton from '../base/buttons/CancelButton'
 import DocumentTypeListItem from '../document-types/DocumentTypeListItem'
 
 import { roomListStore } from '../../stores/RoomList'
-import { documentTypeListStore } from '../../stores/DocumentTypeList'
 import { getRoomLisPath } from '../../utils/url'
+import { IRoomDetail } from '../../models/RoomDetail'
 
 type Props = {
   path: string
   id?: string
-  roomDetail: any // similar to RoomDetailModel
+  roomDetail: IRoomDetail // similar to RoomDetailModel
 }
 
 function RoomDetailsPage({ id, roomDetail }: Props) {
   const [isEditable, setIsEditable] = useState(false)
   const [isMutated, setIsMutated] = useState(false)
 
-  const room = roomListStore.getById(Number(id))
+  const room = roomListStore.getById(id)
   const [name, setName] = useState(room.name)
 
   useEffect(() => {
+    roomDetail.load(id)
   }
   , [id])
 
@@ -82,8 +83,6 @@ function RoomDetailsPage({ id, roomDetail }: Props) {
   const disableSaveButton = !isMutated
   const disableCancelButton = !isMutated
 
-  const documentTypes = filter(documentTypeListStore.items, (o) => find(room.documentTypes, (d) => o.alias === d.alias))
-
   return (
     <>
       <InputLabel>Room</InputLabel>
@@ -129,7 +128,7 @@ function RoomDetailsPage({ id, roomDetail }: Props) {
       <List
         subheader={<ListSubheader>Docements</ListSubheader>}
       >
-        {map(documentTypes, (o) => 
+        {map(roomDetail.documentTypes, (o) => 
         <DocumentTypeListItem
           key={o.alias}
           roomId={id}

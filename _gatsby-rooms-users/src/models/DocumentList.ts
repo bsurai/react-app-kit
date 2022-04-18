@@ -14,7 +14,7 @@ export const DocumentMetadataModel = types.model({
 }))
 
 export const DocumentListItemModel = types.model({
-    id: types.number,
+    id: types.string,
     name: types.string,
     alias: types.string,
     image: types.optional(types.string, ''),
@@ -37,7 +37,7 @@ export const DocumentListModel = types.model({
       self.items.push(document)
     },
 
-    getById(id: number) {
+    getById(id: string) {
       return self.items.find((document) => document.id === id)
     },
 

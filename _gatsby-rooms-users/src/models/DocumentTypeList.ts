@@ -1,19 +1,16 @@
-import { types } from 'mobx-state-tree'
+import { types, Instance } from 'mobx-state-tree'
 
 export const DocumentTypeListItemModel = types.model({
-    id: types.number,
+    id: types.string,
     name: types.string,
     alias: types.string,
     image: types.optional(types.string, ''),
     createdAt: types.Date,
-    
   })
   .actions((self) => ({
-
     // changeName(newName: string) {
     //   self.name = newName
     // },
-
   }))
 
 export const DocumentTypeListModel = types.model({
@@ -25,8 +22,10 @@ export const DocumentTypeListModel = types.model({
       self.items.push(documentType)
     },
 
-    getById(id: number) {
+    getById(id: string) {
       return self.items.find((documentType) => documentType.id === id)
     },
 
   }))
+
+  export interface IRoomDocumentTypeListItem extends Instance<typeof DocumentTypeListItemModel> {}

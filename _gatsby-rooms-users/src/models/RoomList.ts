@@ -1,16 +1,10 @@
 import { types, Instance, getEnv, flow, cast } from 'mobx-state-tree'
-import { DocumentType } from '../../../blueprints/documents-and-rooms/types'
-
-export const RoomDocumentTypeModel = types.model({
-  alias: types.string,
-})
 
 export const RoomListItemModel = types.model({
-    id: types.number,
+    id: types.string,
     name: types.string,
     image: types.optional(types.string, ''),
     createdAt: types.Date,
-    documentTypes: types.optional(types.array(RoomDocumentTypeModel), []),
   })
   .actions((self) => ({
 
@@ -29,7 +23,7 @@ export const RoomListModel = types.model({
       self.items.push(room)
     },
 
-    getById(id: number) {
+    getById(id: string) {
       return self.items.find((room) => room.id === id)
     },
 
@@ -40,6 +34,5 @@ export const RoomListModel = types.model({
 
   }))
 
-export interface IRoomDocumentType extends Instance<typeof RoomDocumentTypeModel> {}
 export interface IRoomListItem extends Instance<typeof RoomListItemModel> {}
 export interface IRoomList extends Instance<typeof RoomListModel> {}
