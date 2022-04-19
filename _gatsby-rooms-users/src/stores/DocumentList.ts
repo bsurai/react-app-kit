@@ -1,8 +1,14 @@
-import { DocumentListModel } from '../models/DocumentList'
+import { DocumentListModel } from '../models/DocumentList';
+import { documentService } from '../service';
 
-export const documentListStore = DocumentListModel.create({
-  items: mockItems(),
-})
+function createDocumentList(service) {
+  return DocumentListModel.create(
+    { items: mockItems() },
+    { service },
+  )
+}
+
+export const documentListStore = createDocumentList(documentService);
 
 function mockItems() {
   return [];

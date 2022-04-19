@@ -12,17 +12,13 @@ import { roomDetailStore } from '../stores/RoomDetail'
 import { documentListStore } from '../stores/DocumentList'
 
 import RoomDetailsPage from "../components/rooms/RoomDetailsPage"
-import DocumentListPage from "../components/document-types/DocumentListPage"
+import DocumentListPage from "../components/documents/DocumentListPage"
 
 import { getRoomLisPath } from "../utils/url"
 
 
 function IndexSubPage(props) {
   return <div/>
-}
-
-function RoomCreate() {
-
 }
 
 const SecondPage = () => (

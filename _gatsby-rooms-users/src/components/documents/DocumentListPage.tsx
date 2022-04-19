@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { observer } from 'mobx-react-lite'
 import { Link } from 'gatsby'
 import map from 'lodash/map';
@@ -8,18 +8,21 @@ import ListSubheader from '@material-ui/core/ListSubheader'
 
 import DocumentListItem from './DocumentListItem'
 import { getRoomIdPath } from '../../utils/url'
+import { IDocumentList } from '../../models/DocumentList';
 
 interface Props {
   path: string
   location?: any
-  documentList?: { // similar to DocumentListModel
-    items?: any[]
-  }
+  documentList?: IDocumentList
 }
 
-function DocumentListPage({ location, documentList = {} }: Props) {
-
+function DocumentListPage({ location, documentList }: Props) {
   const roomId = location?.state?.roomId;
+
+  useEffect(() => {
+    documentList.load();
+  });
+
   return (
     <>
     <Link to={getRoomIdPath(roomId)}>
