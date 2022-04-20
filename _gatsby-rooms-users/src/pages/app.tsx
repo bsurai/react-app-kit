@@ -39,9 +39,9 @@ const SecondPage = () => (
       <IndexSubPage path='/'/>
 
       <RoomListPage path='/rooms' roomList={roomListStore}/>
-      <RoomDetailsPage path="/room/:id" roomDetail={roomDetailStore}/>
+      <RoomDetailsPage path="/room/:roomId" roomDetail={roomDetailStore}/>
 
-      <DocumentListPage path='/document/:documentType' documentList={documentListStore}/>
+      <DocumentListPage path='/room/:roomId/doc/:docType' documentList={documentListStore}/>
     </Router>
     
   </Layout>

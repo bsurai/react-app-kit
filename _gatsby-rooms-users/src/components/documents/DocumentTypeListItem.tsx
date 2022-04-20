@@ -19,7 +19,7 @@ type Props = {
 function DocumentTypeListItem({ roomId, item }: Props) {
 
   function handleClick() {
-    navigate(getDocumentTypePath(item.alias), { state: { roomId } })
+    navigate(getDocumentTypePath(roomId, item.alias))
   }
 
   return (

@@ -8,19 +8,19 @@ import ListSubheader from '@material-ui/core/ListSubheader'
 
 import DocumentListItem from './DocumentListItem'
 import { getRoomIdPath } from '../../utils/url'
-import { IDocumentList } from '../../models/DocumentList';
+import { IDocumentList, IDocumentListItem } from '../../models/DocumentList';
 
 interface Props {
   path: string
+  roomId?: string
+  docType?: string
   location?: any
   documentList?: IDocumentList
 }
 
-function DocumentListPage({ location, documentList }: Props) {
-  const roomId = location?.state?.roomId;
-
+function DocumentListPage({ roomId, docType, location, documentList }: Props) {
   useEffect(() => {
-    documentList.load();
+    documentList.load(roomId, docType);
   });
 
   return (
@@ -31,7 +31,7 @@ function DocumentListPage({ location, documentList }: Props) {
     <List
       subheader={<ListSubheader>Document Type</ListSubheader>}
     >
-      {map(documentList.items, (o) => <DocumentListItem key={o.id} item={o}/>)}
+      {map(documentList.items, (d: IDocumentListItem) => <DocumentListItem key={d.id} item={d}/>)}
     </List>
     </>
   )

@@ -6,13 +6,10 @@ import ListItemText from '@material-ui/core/ListItemText'
 import { observer } from 'mobx-react-lite'
 import { navigate } from "gatsby"
 import { getRoomIdPath } from '../../utils/url'
+import { IDocumentListItem } from '../../models/DocumentList'
 
 type Props = {
-  item: {
-    id: number
-    image: string
-    name: string
-  }
+  item: IDocumentListItem
 }
 
 function DocumentListItem({ item }: Props) {

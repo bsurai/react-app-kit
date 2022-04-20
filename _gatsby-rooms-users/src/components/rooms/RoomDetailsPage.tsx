@@ -20,21 +20,21 @@ import { IRoomDetail } from '../../models/RoomDetail'
 
 type Props = {
   path: string
-  id?: string
+  roomId?: string
   roomDetail: IRoomDetail // similar to RoomDetailModel
 }
 
-function RoomDetailsPage({ id, roomDetail }: Props) {
+function RoomDetailsPage({ roomId, roomDetail }: Props) {
   const [isEditable, setIsEditable] = useState(false)
   const [isMutated, setIsMutated] = useState(false)
 
-  const room = roomListStore.getById(id)
+  const room = roomListStore.getById(roomId)
   const [name, setName] = useState(room.name)
 
   useEffect(() => {
-    roomDetail.load(id)
+    roomDetail.load(roomId)
   }
-  , [id])
+  , [roomId])
 
 
   useEffect(() => {
@@ -129,7 +129,7 @@ function RoomDetailsPage({ id, roomDetail }: Props) {
         {map(roomDetail.documentTypes, (o) => 
         <DocumentTypeListItem
           key={o.alias}
-          roomId={id}
+          roomId={roomId}
           item={o}
         />)}
       </List>

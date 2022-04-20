@@ -38,9 +38,9 @@ export const DocumentListModel = types.model({
       return self.items.find((document) => document.id === id)
     },
 
-    load: flow(function*() {
-      const resp = yield getEnv(self).service.getList()
-      self.items = cast(resp)
+    load: flow(function*(roomId: string, docType: string) {
+      const resp = yield getEnv(self).service.getList(roomId, docType);
+      self.items = cast(resp);
     }),
 
   }))
