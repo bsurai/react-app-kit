@@ -27,33 +27,28 @@ type Props = {
 function RoomDetailsPage({ roomId, roomDetail }: Props) {
   const [isEditable, setIsEditable] = useState(false)
   const [isMutated, setIsMutated] = useState(false)
-
-  const room = roomListStore.getById(roomId)
-  const [name, setName] = useState(room.name)
+  const [name, setName] = useState(roomDetail.name)
 
   useEffect(() => {
     roomDetail.load(roomId)
   }
   , [roomId])
 
-
   useEffect(() => {
-    setName(room.name)
+    setName(roomDetail.name)
 
     return () => {
       setIsEditable(false)
       setIsMutated(false)
     }
-  }, [room])
-
-  
+  }, [roomDetail])
 
   function handleClickEdit() {
     setIsEditable(true)
   }
 
   function handleClickSave() {
-    room.changeName(name)
+    roomDetail.changeName(name)
     setIsMutated(false)
     setIsEditable(false)
   }
@@ -64,7 +59,7 @@ function RoomDetailsPage({ roomId, roomDetail }: Props) {
   }
 
   function handleClickCancel() {
-    setName(room.name)
+    setName(roomDetail.name)
     setIsMutated(false)
     setIsEditable(false)
   }
@@ -87,7 +82,7 @@ function RoomDetailsPage({ roomId, roomDetail }: Props) {
 
       <TextInput
         label='ID'
-        value={room?.id}
+        value={roomDetail.id}
         readOnly
       />
       
